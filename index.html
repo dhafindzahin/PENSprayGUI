@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PENSpray</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="grid grid-cols-2 grid-rows-2 bg-black font-inter text-white">
+			<!-- INFO -->
+			<div class="border-secondary border-r-2 border-b-2 border-solid">
+				<div class="flex justify-center items-center border-secondary border-b-2 border-solid h-[40vh]">
+					<div class="flex justify-center bg-gray rounded-full w-[150px]">
+						<svg width="300" height="125" fill="none" class="stroke-primary">
+							<path
+								d="
+						M 0,75
+						L 50,75
+						L 75,25
+						L 100,75
+						L 150,75
+						"
+							></path>
+						</svg>
+					</div>
+				</div>
+				<div class="flex justify-between items-end px-12 h-[10vh] leading-loose">
+					<div class="flex items-center gap-1">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z"
+							/>
+						</svg>
+						<p>42.8km/h</p>
+					</div>
+					<div class="flex items-center gap-1">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+						</svg>
+						<p>69m</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- CAMERA -->
+			<div class="border-secondary border-b-2 border-solid">
+				<img src="resource/image/camera-placeholder.jpg" alt="" width="100%" class="max-h-[50vh]" />
+			</div>
+
+			<!-- CONTROL -->
+			<div class="border-secondary border-r-2 border-solid max-h-[50vh]">
+				<div class="grid grid-cols-2 grid-rows-2 h-full">
+					<div class="flex justify-center items-end">
+						<div id="joystick" style="width: 75px; height: 75px"></div>
+					</div>
+					<div class="flex gap-5 row-span-2 self-center">
+						<input type="range" class="h-full max-h-[40vh] accent-primary" dir="rtl" style="writing-mode: vertical-lr" min="0" max="100" id="height" />
+						<div class="flex flex-col justify-around">
+							<button class="bg-primary p-3 text-center">AUTONOMOUS</button>
+							<button class="bg-primary p-3 text-center">SPRAY</button>
+						</div>
+					</div>
+					<div class="flex items-center">
+						<input type="range" name="rotate" id="rotate" class="w-full accent-primary" />
+					</div>
+				</div>
+			</div>
+
+			<!-- MAP -->
+			<div>
+				<div class="border-secondary border-b-2 border-solid">
+					<img src="resource/image/map.jfif" alt="" width="100%" class="max-h-[40vh]" />
+				</div>
+				<div class="flex justify-between items-end px-12 h-[10vh] leading-loose">
+					<p>LU 6°</p>
+					<p>LS -11°</p>
+				</div>
+			</div>
+		</main>
+	</body>
+	<script src="joy.js"></script>
+	<script type="text/javascript">
+		var joy = new JoyStick("joystick", { width: 75, height: 75 });
+	</script>
+</html>
