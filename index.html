@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 		crossorigin=""/>
+		<link rel="stylesheet" href="resource/css/pleaserotate.css">
 	</head>
 	<body>
 		<main class="grid grid-cols-2 grid-rows-2 bg-black font-inter text-white">
@@ -94,13 +95,13 @@
 			</div>
 		</main>
 	</body>
-	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="resource/js/pleaserotate.js"></script>
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 	crossorigin=""></script>
-	<script src="/resource/js/joy.js"></script>
+	<script src="resource/js/joy.js"></script>
 	<script type="text/javascript">
 		var joy = new JoyStick("joystick", { width: 75, height: 75 });
-	</script>
-	<script src="/resource/js/script.js" type="module"></script>
+		</script>
+		<script src="resource/js/script.js" type="module"></script>
 </html>

@@ -1,0 +1,9 @@
+/* style the elements with CSS */
+#pleaserotate-graphic {
+	fill: #fff;
+}
+
+#pleaserotate-backdrop {
+	color: #fff;
+	background-color: hsl(224, 9%, 24%);
+}
