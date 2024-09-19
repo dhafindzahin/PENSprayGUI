@@ -34,14 +34,14 @@
 								d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z"
 							/>
 						</svg>
-						<p>42.8km/h</p>
+						<p><span id="speedOutput"></span>km/h</p>
 					</div>
 					<div class="flex items-center gap-1">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
 							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
 							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
 						</svg>
-						<p>69m</p>
+						<p><span id="heightOutput"></span>m</p>
 					</div>
 				</div>
 			</div>
@@ -58,14 +58,22 @@
 						<div id="joystick" style="width: 75px; height: 75px"></div>
 					</div>
 					<div class="flex gap-5 row-span-2 self-center">
-						<input type="range" class="h-full max-h-[40vh] accent-primary" dir="rtl" style="writing-mode: vertical-lr" min="0" max="100" id="height" />
+						<input
+							type="range"
+							class="h-full max-h-[40vh] accent-primary"
+							dir="rtl"
+							style="writing-mode: vertical-lr"
+							min="0"
+							max="100"
+							id="heightInput"
+						/>
 						<div class="flex flex-col justify-around">
 							<button class="bg-primary p-3 text-center">AUTONOMOUS</button>
 							<button class="bg-primary p-3 text-center">SPRAY</button>
 						</div>
 					</div>
 					<div class="flex items-center">
-						<input type="range" name="rotate" id="rotate" class="w-full accent-primary" />
+						<input type="range" name="rotate" id="rotationInput" class="w-full accent-primary" />
 					</div>
 				</div>
 			</div>
@@ -76,8 +84,8 @@
 					<img src="resource/image/map.jfif" alt="" width="100%" class="max-h-[40vh]" />
 				</div>
 				<div class="flex justify-between items-end px-12 h-[10vh] leading-loose">
-					<p>LU 6°</p>
-					<p>LS -11°</p>
+					<p>LU <span id="lintasUtaraOutput"></span>°</p>
+					<p>LS <span id="lintasSelatanOutput"></span>°</p>
 				</div>
 			</div>
 		</main>
@@ -86,4 +94,5 @@
 	<script type="text/javascript">
 		var joy = new JoyStick("joystick", { width: 75, height: 75 });
 	</script>
+	<script src="script.js" type="module"></script>
 </html>
