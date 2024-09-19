@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>PENSpray</title>
 		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""/>
 	</head>
 	<body>
 		<main class="grid grid-cols-2 grid-rows-2 bg-black font-inter text-white">
@@ -81,7 +84,8 @@
 			<!-- MAP -->
 			<div>
 				<div class="border-secondary border-b-2 border-solid">
-					<img src="resource/image/map.jfif" alt="" width="100%" class="max-h-[40vh]" />
+					<div id="map" class="w-full h-[40vh]"></div>
+					<!-- <img src="resource/image/map.jfif" alt="" width="100%" class="max-h-[40vh]" /> -->
 				</div>
 				<div class="flex justify-between items-end px-12 h-[10vh] leading-loose">
 					<p>LU <span id="lintasUtaraOutput"></span>°</p>
@@ -90,6 +94,10 @@
 			</div>
 		</main>
 	</body>
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	crossorigin=""></script>
 	<script src="joy.js"></script>
 	<script type="text/javascript">
 		var joy = new JoyStick("joystick", { width: 75, height: 75 });

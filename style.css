@@ -682,6 +682,14 @@ video {
   max-height: 25vh;
 }
 
+.min-h-\[40vh\] {
+  min-height: 40vh;
+}
+
+.min-h-\[30vh\] {
+  min-height: 30vh;
+}
+
 .w-full {
   width: 100%;
 }

@@ -33,6 +33,8 @@ const speedOutputRef = ref(db, "output/speed");
 const heightOutputRef = ref(db, "output/height");
 const lintasUtaraOutputRef = ref(db, "output/lintasUtara");
 const lintasSelatanOutputRef = ref(db, "output/lintasSelatan");
+const latOutputRef = ref(db, "output/lat");
+const lngOutputRef = ref(db, "output/lng");
 const rotationInputRef = ref(db, "input/rotation");
 const heightInputRef = ref(db, "input/height");
 
@@ -148,4 +150,54 @@ heightInput.addEventListener("change", (e) => {
 		.catch((error) => {
 			console.error("error: ", error);
 		});
+});
+
+// Setup map
+
+var droneIcon = L.icon({
+    iconUrl: 'resource/image/drone.png',
+
+    iconSize:     [20, 20], // size of the icon
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var cordinate, map, droneMarker;
+async function getCordinate() {
+	let lat, lng;
+	await get(latOutputRef).then((snapshot) => {
+		lat = snapshot.val();
+	});
+	await get(lngOutputRef).then((snapshot) => {
+		lng = snapshot.val();
+	});
+	cordinate = [lat, lng];
+}
+
+function generateMap() {
+	map = L.map("map").setView(cordinate, 16);
+	L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	}).addTo(map);
+	droneMarker = L.marker(cordinate, { icon: droneIcon }).addTo(map);
+}
+
+function updateMap() {
+	map.setView(cordinate, 16)
+	droneMarker.setLatLng(cordinate); 
+}
+
+await getCordinate();
+generateMap()
+
+// Map follow drone
+
+onValue(latOutputRef, (snapshot) => {
+	cordinate[0] = snapshot.val();
+	updateMap()
+});
+
+onValue(lngOutputRef, (snapshot) => {
+	cordinate[1] = snapshot.val();
+	updateMap()
 });
